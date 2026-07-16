@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-base: #0C0C0E;
+    --bg-surface: #141416;
+    --bg-elevated: #1C1C1F;
+    --border-subtle: #2A2A2F;
+    --border-active: #3D3D45;
+    --text-primary: #F0F0F2;
+    --text-secondary: #8B8B99;
+    --text-muted: #52525E;
+
+    --accent-blue: #4F7AFF;
+    --accent-purple: #9B6DFF;
+    --accent-green: #3ECF8E;
+    --accent-red: #FF4D6D;
+    --accent-amber: #F5A623;
+
+    --shadow-node: 0 4px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Light Theme Overrides */
+  .light {
+    --bg-base: #F7F7F9;
+    --bg-surface: #FFFFFF;
+    --bg-elevated: #F0F0F4;
+    --border-subtle: #E4E4E9;
+    --border-active: #D0D0D7;
+    --text-primary: #1C1C1F;
+    --text-secondary: #52525E;
+    --text-muted: #8B8B99;
+
+    --shadow-node: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    margin: 0;
+    font-family: 'Geist', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.react-flow__handle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--bg-base);
+  border: 2px solid var(--accent-blue);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.4);
+  box-shadow: 0 0 8px var(--accent-blue);
+}
+
+.dot-bg {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* React Flow Connection Validation Cues */
+.react-flow__handle.connecting {
+  box-shadow: 0 0 8px var(--border-active);
+}
+
+.react-flow__handle.valid {
+  background-color: var(--accent-green) !important;
+  border-color: var(--accent-green) !important;
+  box-shadow: 0 0 12px var(--accent-green) !important;
+  transform: scale(1.6);
+}
